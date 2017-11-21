@@ -28,7 +28,7 @@ public class AlbumController {
 		List<Album> albums = albumRepository.findByGenreName(name);
 		List<Genre> genres = genreRepository.findAll();
 		model.addAttribute("genres", genres);
-		model.addAttribute("albums", albums);
+		//model.addAttribute("albums", albums);
 		return "genre";
 	}
 

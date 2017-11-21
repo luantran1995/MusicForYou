@@ -1,7 +1,5 @@
 package com.luantran.nashtech.musicstore.service;
 
-import java.util.HashSet;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void save(Users user) {
-        user.setRoles(new HashSet<>(roleRepository.findAll()));
+//        user.setRoles(new HashSet<>(roleRepository.findAll()));
         userRepository.save(user);
 	}
 

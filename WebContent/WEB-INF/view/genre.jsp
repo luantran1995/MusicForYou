@@ -1,28 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
-
-<title>Store Index</title>
-</head>
-<style>
-<
-body
->
-</style>
-<div>
-	<div id="header">
-		<img src="<c:url value="/image/logo.png" />" />
-		<h2>SPRING MVC MUSIC STORE</h2>
-		<ul id="navlist">
-			<li class="first"><a href="${pageContext.request.contextPath}/"
-				id="current">Home</a></li>
-			<li><a href="">Store</a></li>
-			<li><a href="">Cart</a></li>
-			<li><a href="">Login</a></li>
-		</ul>
-	</div>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ include file="/WEB-INF/view/template/header.jsp" %>
 	<div>
 		<ul id="categories">
 			<c:forEach var="genre" items="${genres}">

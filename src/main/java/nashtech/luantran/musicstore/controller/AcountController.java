@@ -1,5 +1,7 @@
 package nashtech.luantran.musicstore.controller;
 
+import java.util.HashSet;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -19,6 +21,7 @@ import com.luantran.nashtech.musicstore.service.SecurityService;
 import com.luantran.nashtech.musicstore.service.UserService;
 import com.luantran.nashtech.musicstore.validator.UserValidator;
 
+import nashtech.luantran.musicstore.model.Role;
 import nashtech.luantran.musicstore.model.Users;
 import nashtech.luantran.musicstore.repository.RoleRepository;
 
@@ -32,8 +35,8 @@ public class AcountController {
 
 	@Autowired
 	private UserValidator userValidator;
-    @Autowired
-    private RoleRepository roleRepository;
+	@Autowired
+	private RoleRepository roleRepository;
 
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
@@ -67,19 +70,21 @@ public class AcountController {
 
 	}
 
-	 @RequestMapping(value = "/registration", method = RequestMethod.POST)
-	 public String registration(@ModelAttribute("userForm") Users userForm,BindingResult bindingResult, Model model) {
-	 userValidator.validate(userForm, bindingResult);
-	
-	 if (bindingResult.hasErrors()) {
-	 return "registration";
-	 }
-	 
-	 userService.save(userForm);
-	 securityService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
-	 return "redirect:/";
-	
-	
-	 }
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
+	public String registration(@ModelAttribute("userForm") Users userForm, BindingResult bindingResult, Model model) {
+		userValidator.validate(userForm, bindingResult);
+
+		if (bindingResult.hasErrors()) {
+			return "registration";
+		}
+		 HashSet<Role> roles = new HashSet<>();
+         roles.add(roleRepository.findByName("ROLE_MEMBER"));
+		
+		userForm.setRoles(roles);
+		userService.save(userForm);
+		securityService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
+		return "redirect:/";
+
+	}
 
 }

@@ -12,9 +12,9 @@
 
 <title>My Music Store</title>
 <!-- JQuery -->
-<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-<script
-	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script> -->
+<!-- <script -->
+<!-- 	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script> -->
 
 
 
@@ -22,6 +22,8 @@
 <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <!-- MaCarouselin CSS -->
+    <!-- MaCarouselin CSS -->
+    <link href="<c:url value="/resources/css/carousel.css" />" rel="stylesheet">
 
 <link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
 
@@ -46,10 +48,9 @@
 							<c:if test="${pageContext.request.userPrincipal.name != null}">
 								<li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
 								<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-								<li><a href="">Store</a></li>
 								<c:if
 									test="${pageContext.request.userPrincipal.name != 'admin'}">
-									<li><a href="">Cart</a></li>
+								<li><a href="<c:url value="/viewcart" />">Cart</a></li>
 								</c:if>
 								<c:if
 									test="${pageContext.request.userPrincipal.name != 'admin'}">
@@ -59,8 +60,7 @@
 								</c:if>
 							<c:if test="${pageContext.request.userPrincipal.name == null}">
 								<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-								<li><a href="">Store</a></li>
-								<li><a href="">Cart</a></li>
+								<li><a href="<c:url value="/viewcart" />">Cart</a></li>
 								<li><a href="<c:url value="/registration" />">Register</a></li>
 								<li><a href="<c:url value="/login" />">Login</a></li>
 							</c:if>

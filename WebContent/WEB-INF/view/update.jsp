@@ -36,6 +36,5 @@
 		<div id="footer">
 			<a href="https://spring.io/">built with Spring MVC </a>
 		</div>
-	</div>
 </body>
 </html>

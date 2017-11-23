@@ -1,14 +1,18 @@
+<link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
+
+<link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
 <!-- FOOTER -->
 <footer>
-	<p>
+	<div >
 		<img src="<c:url value="/image/home-showcase.png" />" />
-	</p>
+	</div>
 	<p>
-		&copy; 2017 NashTechCompany, Inc. &middot; <a href="#">Privacy</a>
-		&middot; <a href="#">Terms</a>
+			<div id="footer">
+			<a href="https://spring.io/">built with Spring MVC </a>
+		</div>
 	</p>
-	
+
 
 </footer>
 

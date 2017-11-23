@@ -57,7 +57,7 @@ public class AcountController {
 
 		return "login";
 	}
-
+	
 	@GetMapping("/403")
 	public String accessDenied() {
 		return "403";
@@ -72,7 +72,8 @@ public class AcountController {
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registration(@ModelAttribute("userForm") Users userForm, BindingResult bindingResult, Model model) {
-		userValidator.validate(userForm, bindingResult);
+ 
+	userValidator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			return "registration";
@@ -81,7 +82,7 @@ public class AcountController {
          roles.add(roleRepository.findByName("ROLE_MEMBER"));
 		
 		userForm.setRoles(roles);
-		userService.save(userForm);
+		userService.save(userForm);	
 		securityService.autologin(userForm.getEmail(), userForm.getPasswordConfirm());
 		return "redirect:/";
 

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import nashtech.luantran.musicstore.model.Users;
+import nashtech.luantran.musicstore.repository.AlbumRepository;
 import nashtech.luantran.musicstore.repository.RoleRepository;
 import nashtech.luantran.musicstore.repository.UserRepository;
 @Service
@@ -12,11 +13,11 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private RoleRepository roleRepository;
-
 	@Override
 	public void save(Users user) {
 //        user.setRoles(new HashSet<>(roleRepository.findAll()));
         userRepository.save(user);
+        System.out.println("dung no ở đây");
 	}
 
 	@Override

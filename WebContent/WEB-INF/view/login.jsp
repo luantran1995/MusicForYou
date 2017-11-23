@@ -17,6 +17,7 @@
 <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <link href="<c:url value="/css/common.css"/>"  rel="stylesheet">
+
 </head>
 <body>
 <div class="container">
@@ -30,7 +31,9 @@
 			<span>${error}</span>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+			
 			 <h4 class="text-center"><a href="${pageContext.request.contextPath}/registration">Create an account</a></h4>
+			 <h5 class="text-center"><a href="${pageContext.request.contextPath}/">Continue Shopping</a></h5>
 		</div>
 		</form>
 </div>

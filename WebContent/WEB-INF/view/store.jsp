@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
-<a  class="btn btn-lg  " href="<c:url value="/admin/getList"/>"> Create New Album </a>
-
 		<div>
 			<ul id="categories">
 				<c:forEach var="genre" items="${genres}">
@@ -17,12 +15,11 @@
 			<table>
 				<tr>
 					<th>Image</th>
-
 					<th>Title</th>
 					<th>Artist</th>
 					<th>Genre</th>
-					<th>
-					<th>
+					<th></th>
+					
 				</tr>
 				<c:forEach items="${albums}" var="album">
 					<tr>
@@ -30,9 +27,9 @@
 						<td>${album.title}</td>
 						<td>${album.artist.name }</td>
 						<td>${album.genre.name }</td>
-						<td><a href="<c:url value ="/admin/update/${album.id}"/>">
-								Edit </a>| <a href="<c:url value="/admin/detail/${album.id}"/>">Detail</a>|
-							<a href="<c:url value="/admin/delete/${album.id}"/>">Delete</a>
+						<td>
+						<button class="button" type="submit">Add Cart</button> <br />
+						</td>
 					</tr>
 				</c:forEach>
 			</table>

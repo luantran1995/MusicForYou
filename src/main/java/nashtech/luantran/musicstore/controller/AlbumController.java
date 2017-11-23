@@ -17,6 +17,7 @@ import nashtech.luantran.musicstore.repository.GenreRepository;
 
 public class AlbumController {
 
+	
 
 	@Autowired
 	private AlbumRepository albumRepository;
@@ -29,6 +30,7 @@ public class AlbumController {
 		List<Genre> genres = genreRepository.findAll();
 		model.addAttribute("genres", genres);
 		model.addAttribute("albums", albums);
+		model.addAttribute("genreName", name);
 		return "genre";
 	}
 

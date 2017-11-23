@@ -41,7 +41,7 @@
 	<div class="navbar-wrapper">
 		<div class="header">
 
-			<nav class="navbar navbar-inverse navbar-static-top">
+			<nav class="navbar navbar-default">
 				<div class="container">
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav pull-right">
@@ -62,7 +62,7 @@
 								<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 								<li><a href="<c:url value="/viewcart" />">Cart</a></li>
 								<li><a href="<c:url value="/registration" />">Register</a></li>
-								<li><a href="<c:url value="/login" />">Login</a></li>
+								<li ><a href="<c:url value="/login" />">Login</a></li>
 							</c:if>
 						</ul>
 							

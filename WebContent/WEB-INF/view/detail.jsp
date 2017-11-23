@@ -1,8 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
-		<div>
-			<table>
+		<div  class="container">
+			<table  class="table table-striped" >
 				<tr>
 					<th></th>
 					<th>Title</th>

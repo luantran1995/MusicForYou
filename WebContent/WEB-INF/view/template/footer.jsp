@@ -4,14 +4,12 @@
 <link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
 <!-- FOOTER -->
 <footer>
-	<div >
+	<div class ="main" >
 		<img src="<c:url value="/image/home-showcase.png" />" />
 	</div>
-	<p>
 			<div id="footer">
 			<a href="https://spring.io/">built with Spring MVC </a>
 		</div>
-	</p>
 
 
 </footer>

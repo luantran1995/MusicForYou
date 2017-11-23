@@ -5,16 +5,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 
 
 <head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
+
 <title>Create an account</title>
 <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
@@ -50,7 +44,9 @@
 				</div>
 			</spring:bind>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+			<button class="btn btn-lg btn btn-success btn-block" type="submit">Submit</button>
+			 <h4 class="text-center"><a href="${pageContext.request.contextPath}/">Home</a></h4>
+			
 		</form:form>
 	</div>
 

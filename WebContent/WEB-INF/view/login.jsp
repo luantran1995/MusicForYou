@@ -30,10 +30,10 @@
 			<input type="password" class="form-control"  name="password" placeholder="Your password" />
 			<span>${error}</span>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+			<button class="btn btn-lg btn btn-success btn-block" type="submit">Login</button>
 			
 			 <h4 class="text-center"><a href="${pageContext.request.contextPath}/registration">Create an account</a></h4>
-			 <h5 class="text-center"><a href="${pageContext.request.contextPath}/">Continue Shopping</a></h5>
+			 <h5 class="text-center"><a href="${pageContext.request.contextPath}/">Home</a></h5>
 		</div>
 		</form>
 </div>

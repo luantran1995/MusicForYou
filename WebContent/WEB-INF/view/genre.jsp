@@ -14,7 +14,7 @@
 	<div id="main">
 		<div class="genre">
 			<h1>Albums</h1>
-			<ul id="album-list">
+			<ul  id="album-list">
 				<c:forEach items="${albums}" var="album">
 					<li><a href="<c:url value="/viewproduct/${album.id}" />"><img
 							src="<c:url value="${album.albumArtUrl}" />" /> <span>${album.title}</span>

@@ -13,8 +13,8 @@
 			</ul>
 		</div>
 
-		<div>
-			<table>
+		<div class="container">
+			<table class="table table-striped">
 				<tr>
 					<th>Image</th>
 

@@ -50,8 +50,8 @@ public class AcountController {
 	@GetMapping("/login")
 	public String getLogin(Model model, String error, String logout) {
 		if (error != null)
-			model.addAttribute("error", "Your username and password is invalid.");
-
+			model.addAttribute("error", "Your password and email is invalid.");
+		
 		if (logout != null)
 			model.addAttribute("message", "You have been logged out successfully.");
 

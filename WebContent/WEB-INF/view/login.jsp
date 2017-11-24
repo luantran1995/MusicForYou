@@ -21,12 +21,14 @@
 </head>
 <body>
 <div class="container">
-		<form th:action="@{/login}" method="POST" class="form-signin">
+		<form th:action="/login" method="POST" class="form-signin">
 		 <h2 class="form-heading">Log in</h2>
 		
 		<div class ="form-group ${error != null ? 'has-error' : ''}">
 		<span>${message}</span>
 			<input type="text" class="form-control" name="email" placeholder="Your email"  />
+						<span>${error}</span>
+			
 			<input type="password" class="form-control"  name="password" placeholder="Your password" />
 			<span>${error}</span>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />

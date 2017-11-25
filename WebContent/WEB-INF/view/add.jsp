@@ -8,11 +8,21 @@
 <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <link href="<c:url value="/css/common.css"/>" rel="stylesheet">
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["price"].value;
+    if (x == ""  ) {
+        alert("Please enter price ");
+        return false;
+    }	
+}
+
+</script>
 
 
 <form:form action="${pageContext.request.contextPath }/admin/add"
-	method="POST"  commandName="albumVO"
-	enctype="multipart/form-data" class="">
+	method="POST"  commandName="albumVO" 
+	enctype="multipart/form-data" class="" name ="myForm" onsubmit="return validateForm()">
 
 
 	<div class="container">
@@ -37,14 +47,15 @@
 				</c:forEach>
 			</form:select>
 		</div>
+		
 		<spring:bind path="price">
 
 			<div class="form-group">
 				<label>Price:</label>
 			</div>
 			<div class="form-group ${status.error ? 'has-error' : ''}" >
-				<form:input type ="text" path="price" class="form-control"
-					placeholder="input Title of Price" style="width: 100%" />
+				<form:input type ="number" step="0.001" path="price" class="form-control " min="0"
+					placeholder="input Title of Price" style="width: 100%"  />
 				<form:errors  path="price"></form:errors>
 
 			</div>
@@ -78,7 +89,7 @@
 
 		<p>
 <!-- 			<input class="btn-lg btn-primary" type="submit" value="Create" /> -->
-						<button class="btn btn-success" type="submit">Create</button>
+						<button class="btn btn-success" type="submit" value="Submit">Create</button>
 						
 			
 		</p>
@@ -95,8 +106,6 @@
 	<a href="https://spring.io/">built with Spring MVC </a>
 </div>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/js/bootstrap.min.js"></script>
 </body>
 </html>

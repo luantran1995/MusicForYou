@@ -1,5 +1,9 @@
 package com.luantran.nashtech.musicstore.vo;
 
+import javax.validation.constraints.NotNull;
+
+import org.springframework.web.multipart.MultipartFile;
+
 import nashtech.luantran.musicstore.model.Album;
 
 public class AlbumVO {
@@ -7,7 +11,8 @@ public class AlbumVO {
 	private Long id;
 
 	private String title;
-
+	
+	@NotNull
 	private double price;
 
 	private String albumArtUrl;
@@ -27,11 +32,20 @@ public class AlbumVO {
 		this.id = album.getId();
 		this.title = album.getTitle();
 		this.price = album.getPrice();
-		this.albumArtUrl = album.getAlbumArtUrl();
+		this.albumArtUrl = album.setAlbumArtUrl(albumArtUrl);
 		this.idGenre = album.getGenre().getId();
 		this.nameGenre = album.getGenre().getName();
 		this.idArtist = album.getArtist().getId();
 		this.nameArtist = album.getArtist().getName();
+	}
+
+	
+	public String getAlbumArtUrl() {
+		return albumArtUrl;
+	}
+
+	public void setAlbumArtUrl(String albumArtUrl) {
+		this.albumArtUrl = albumArtUrl;
 	}
 
 	public Long getId() {
@@ -58,14 +72,8 @@ public class AlbumVO {
 		this.price = price;
 	}
 
-	public String getAlbumArtUrl() {
-		return albumArtUrl;
-	}
 
-	public void setAlbumArtUrl(String albumArtUrl) {
-		this.albumArtUrl = albumArtUrl;
-	}
-
+	
 	public Long getIdGenre() {
 		return idGenre;
 	}

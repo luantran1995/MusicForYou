@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +33,6 @@ import nashtech.luantran.musicstore.repository.GenreRepository;
 
 public class AdminController {
 
-
 	@Autowired
 	private GenreRepository genreRepository;
 
@@ -43,7 +44,6 @@ public class AdminController {
 
 	@Autowired
 	private AlbumValidator albumValidator;
-
 
 	@GetMapping(value = "/admin/delete/{albumId}")
 	public String deleteAlbum(@PathVariable Long albumId, Model model) {
@@ -78,7 +78,7 @@ public class AdminController {
 
 	@PostMapping(value = "/admin/update")
 	public ModelAndView updateAlbum(@ModelAttribute(value = "albumVO") AlbumVO albumVO, Model model) {
-		Album album = new Album();
+		Album album = new Album();	
 		album.setId(albumVO.getId());
 		album.setArtist(new Artist(albumVO.getIdArtist()));
 		album.setAlbumArtUrl(albumVO.getAlbumArtUrl());
@@ -100,22 +100,22 @@ public class AdminController {
 		model.addAttribute("albumVO", new AlbumVO());
 		model.addAttribute("genres", genres);
 		model.addAttribute("artists", artists);
+		System.out.println("getlist");
+
 		return new ModelAndView("add");
 
 	}
 
 	@PostMapping(value = "/admin/add")
-	public String addAlbum(Model model, @ModelAttribute(value = "albumVO") AlbumVO albumVO,
-			 @RequestParam("file") MultipartFile file, BindingResult bindingResult) {
+	public String addAlbum(Model model, @ModelAttribute(value = "albumVO") @Valid AlbumVO albumVO,
+			@RequestParam("file") MultipartFile file, BindingResult bindingResult) {
 		Album album = new Album();
 		album.setId(albumVO.getId());
 		album.setArtist(new Artist(albumVO.getIdArtist()));
 		album.setGenre(new Genre(albumVO.getIdGenre()));
 		album.setPrice(albumVO.getPrice());
 		album.setTitle(albumVO.getTitle());
-		
-	
-		
+
 		if (!file.isEmpty()) {
 			try {
 				byte[] bytes = file.getBytes();
@@ -127,7 +127,7 @@ public class AdminController {
 					dir.mkdirs();
 
 				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath() + File.separator );
+				File serverFile = new File(dir.getAbsolutePath() + File.separator);
 				// byte[] encodeBase64 = Base64.encodeBase64(bytes);
 				// String base64Encoded = new String(encodeBase64, "UTF-8");
 				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
@@ -147,6 +147,7 @@ public class AdminController {
 			model.addAttribute("artists", artists);
 			return "add";
 		}
+		System.out.println("add album sucess");
 
 		albumRepository.save(album);
 		model.addAttribute("albums", albumRepository.findAll());

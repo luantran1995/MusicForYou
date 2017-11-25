@@ -13,7 +13,7 @@
 <form action="/viewproduct" method="post">
 	<div id="main">
 		<div class="genre">
-			<h1>Albums</h1>
+			<h2>Albums</h2>
 			<ul  id="album-list">
 				<c:forEach items="${albums}" var="album">
 					<li><a href="<c:url value="/viewproduct/${album.id}" />"><img

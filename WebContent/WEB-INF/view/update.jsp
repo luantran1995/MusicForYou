@@ -4,10 +4,10 @@
 
 		<div>
 			<form:form action="${pageContext.request.contextPath}/admin/update" method="POST" commandName="albumVO">
-			<form:hidden path="id" value="${albumVO.id}"/>
-			<form:hidden path="idArtist" value="${albumVO.idArtist}"/>
-			<form:hidden path="idGenre" value="${albumVO.idGenre}"/>
-			<form:hidden path="albumArtUrl" value="${albumVO.albumArtUrl}"/>
+<%-- 			<form:hidden path="id" value="${albumVO.id}"/> --%>
+<%-- 			<form:hidden path="idArtist" value="${albumVO.idArtist}"/> --%>
+<%-- 			<form:hidden path="idGenre" value="${albumVO.idGenre}"/> --%>
+<%-- 			<form:hidden path="albumArtUrl" value="${albumVO.albumArtUrl}"/> --%>
 				<table>
 					<tr>
 						<th></th>

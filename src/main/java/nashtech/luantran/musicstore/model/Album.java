@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Album {
@@ -13,12 +15,24 @@ public class Album {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty
 	private String title;
-
+	
+	@NotNull
 	private double price;
 	
 	@Column(length = 1024)
 	private String albumArtUrl;
+
+	
+
+	public String getAlbumArtUrl() {
+		return albumArtUrl;
+	}
+
+	public String setAlbumArtUrl(String albumArtUrl) {
+		return this.albumArtUrl = albumArtUrl;
+	}
 
 	@ManyToOne
 	private Genre genre;
@@ -50,13 +64,6 @@ public class Album {
 		this.price = price;
 	}
 
-	public String getAlbumArtUrl() {
-		return albumArtUrl;
-	}
-
-	public void setAlbumArtUrl(String albumArtUrl) {
-		this.albumArtUrl = albumArtUrl;
-	}
 
 	public Genre getGenre() {
 		return genre;

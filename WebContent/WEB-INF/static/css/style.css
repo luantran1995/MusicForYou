@@ -278,3 +278,6 @@ th, td {
 tr:hover {
 	background-color: #fff;
 }
+.has-error {
+    color: red
+}

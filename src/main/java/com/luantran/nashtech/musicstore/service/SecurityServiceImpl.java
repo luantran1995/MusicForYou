@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SecurityServiceImpl implements SecurityService {
+	
 	  @Autowired
 	    private AuthenticationManager authenticationManager;
 
@@ -18,6 +19,7 @@ public class SecurityServiceImpl implements SecurityService {
 
 	@Override
 	public String findLoggedInEmail() {
+		System.out.println("find log email in database flow");
 		Object userDetails = SecurityContextHolder.getContext().getAuthentication().getDetails();
 		if (userDetails instanceof UserDetails) {
             return ((UserDetails)userDetails).getUsername();
@@ -27,6 +29,7 @@ public class SecurityServiceImpl implements SecurityService {
 
 	@Override
 	public void autologin(String username, String password) {
+		System.out.println("auto login then regersion success");
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);

@@ -32,6 +32,7 @@ import nashtech.luantran.musicstore.repository.GenreRepository;
 @Controller
 
 public class AdminController {
+	
 
 	@Autowired
 	private GenreRepository genreRepository;
@@ -108,7 +109,7 @@ public class AdminController {
 
 	@PostMapping(value = "/admin/add")
 	public String addAlbum(Model model, @ModelAttribute(value = "albumVO") @Valid AlbumVO albumVO,
-			@RequestParam("file") MultipartFile file, BindingResult bindingResult) {
+			 BindingResult bindingResult) {
 		Album album = new Album();
 		album.setId(albumVO.getId());
 		album.setArtist(new Artist(albumVO.getIdArtist()));
@@ -116,28 +117,28 @@ public class AdminController {
 		album.setPrice(albumVO.getPrice());
 		album.setTitle(albumVO.getTitle());
 
-		if (!file.isEmpty()) {
-			try {
-				byte[] bytes = file.getBytes();
-
-				// Creating the directory to store file
-				String rootPath = System.getProperty("catalina.home");
-				File dir = new File(rootPath + File.separator + "tmpFiles");
-				if (!dir.exists())
-					dir.mkdirs();
-
-				// Create the file on server
-				File serverFile = new File(dir.getAbsolutePath() + File.separator);
-				// byte[] encodeBase64 = Base64.encodeBase64(bytes);
-				// String base64Encoded = new String(encodeBase64, "UTF-8");
-				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
-				stream.write(bytes);
-				stream.close();
-
-			} catch (Exception e) {
-
-			}
-		}
+//		if (!file.isEmpty()) {
+//			try {
+//				byte[] bytes = file.getBytes();
+//
+//				// Creating the directory to store file
+//				String rootPath = System.getProperty("catalina.home");
+//				File dir = new File(rootPath + File.separator + "tmpFiles");
+//				if (!dir.exists())
+//					dir.mkdirs();
+//
+//				// Create the file on server
+//				File serverFile = new File(dir.getAbsolutePath() + File.separator);
+//				// byte[] encodeBase64 = Base64.encodeBase64(bytes);
+//				// String base64Encoded = new String(encodeBase64, "UTF-8");
+//				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+//				stream.write(bytes);
+//				stream.close();
+//
+//			} catch (Exception e) {
+//
+//			}
+//		}
 		albumValidator.validate(albumVO, bindingResult);
 
 		if (bindingResult.hasErrors()) {

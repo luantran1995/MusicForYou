@@ -79,16 +79,14 @@ function validateForm() {
 			<label>Image:</label>
 		</div>
 		<div class="form-group">
-			<%-- <form:input  path="albumArtUrl" type="file" placeholder="input Title of album" />--%>
-			<div>
-				<input type="file" name="file">
-			</div>
+<!-- 			<div> -->
+<!-- 				<input type="file" name="file"> -->
+<!-- 			</div> -->
 
 		</div>
 
 
 		<p>
-<!-- 			<input class="btn-lg btn-primary" type="submit" value="Create" /> -->
 						<button class="btn btn-success" type="submit" value="Submit">Create</button>
 						
 			

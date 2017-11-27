@@ -15,18 +15,17 @@
 		<form th:action="/login" method="POST">
 			<h3 >Log in</h3>
 
-			<div class="form-group ${error != null ? 'has-error' : ''}" >
+			<div class="form-group " >
 				<span>${message}</span> 
 				<input type="text" class="form-control"name="email" placeholder="Your email" /> 
-					<span>${error}</span> 
+					<div class="has-error">${error}</div>
 					<br>
 					<input type="password" class="form-control" name="password" placeholder="Your password" /> 
-					<span>${error}</span> 
+					<div class="has-error">${error}</div>
+
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 					<br>
 				<button class="btn btn-default " type="submit">Login</button>
-
-
 			</div>
 		</form>
 	</div>

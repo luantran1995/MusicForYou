@@ -46,10 +46,11 @@ public class AcountController {
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		System.out.println("logout");
 		if (auth != null) {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		return "redirect:/";
+		return "login";
 	}
 
 
@@ -57,7 +58,7 @@ public class AcountController {
 	public String getLogin(Model model, String error, String logout) {
 		if (error != null)
 			model.addAttribute("error", "Your password and email is invalid.");
-		
+		System.out.println("login");
 		if (logout != null)
 			model.addAttribute("message", "You have been logged out successfully.");
 		List<Genre> genres = genreRepository.findAll();

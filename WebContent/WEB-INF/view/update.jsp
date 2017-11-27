@@ -1,13 +1,16 @@
+<%@page import="nashtech.luantran.musicstore.controller.AdminController"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
-
+<%
+	String baseURL = (String) request.getAttribute(AdminController.PARAM_BASE_URL);
+%>
 		<div>
 			<form:form action="${pageContext.request.contextPath}/admin/update" method="POST" commandName="albumVO">
-<%-- 			<form:hidden path="id" value="${albumVO.id}"/> --%>
-<%-- 			<form:hidden path="idArtist" value="${albumVO.idArtist}"/> --%>
-<%-- 			<form:hidden path="idGenre" value="${albumVO.idGenre}"/> --%>
-<%-- 			<form:hidden path="albumArtUrl" value="${albumVO.albumArtUrl}"/> --%>
+			<form:hidden path="id" value="${albumVO.id}"/>
+			<form:hidden path="idArtist" value="${albumVO.idArtist}"/>
+			<form:hidden path="idGenre" value="${albumVO.idGenre}"/>
+			<form:hidden path="albumArtUrl" value="${albumVO.albumArtUrl}"/>
 				<table>
 					<tr>
 						<th></th>
@@ -17,6 +20,8 @@
 						<th>Price</th>
 					</tr>
 					<tr>
+					<td><img src="<%=baseURL%>/image/${albumVO.albumArtUrl}"  /></td>
+					
 						<td><form:input path="title"
 								placeholder="input Title of album" value="${albumVO.title}" /></td>
 						<td><form:input path="nameArtist"

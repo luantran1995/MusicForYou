@@ -1,7 +1,12 @@
+<%@page import="nashtech.luantran.musicstore.controller.AdminController"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ include file="/WEB-INF/view/template/header.jsp"%>
 
+<%
+	String baseURL = (String) request.getAttribute(AdminController.PARAM_BASE_URL);
+	String latestPhotoUpload = (String) request.getAttribute(AdminController.PARAM_LATESTPHOTO);
+%>
 
 <div class="container-wrapper">
 	<div class="container">
@@ -10,7 +15,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5">
-					<img src="<c:url value="${album.albumArtUrl}" />" alt="image"
+			<img src="<%=baseURL%>/image/${album.albumArtUrl}" alt="image"
 						style="width: 70%" />
 				</div>
 				<div class="col-md-5">

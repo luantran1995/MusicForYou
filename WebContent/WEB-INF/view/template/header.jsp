@@ -2,13 +2,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="../../favicon.ico">
 
 <title> NashTech Music Store</title>
 
@@ -17,7 +10,7 @@
 <link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
 <!-- MaCarouselin CSS -->
-<link href="<c:url value="/resources/css/carousel.css" />"
+<link href="<c:url value="/css/carousel.css" />"
 	rel="stylesheet">
 
 <link rel="stylesheet" href="<c:url value="/css/style.css"/>" />
@@ -29,12 +22,12 @@
 <!-- NAVBAR
 ================================================== -->
 <body>
-	<div class="navbar-wrapper">
+	<div class="">
 		<div class="header">
 
-			<nav class="navbar navbar-default">
+			<nav class="container">
 				<div class="container">
-					<div id="navbar" class="navbar-collapse collapse">
+					<div id="navbar" >
 						<ul class="nav navbar-nav pull-right">
 							<c:if test="${pageContext.request.userPrincipal.name != null}">
 								<li><a>Welcome:

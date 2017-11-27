@@ -1,3 +1,8 @@
+imga {
+    max-width: 20%;
+    height: 80px;
+}
+
 * {
 	margin: 0px;
 	padding: 0px;

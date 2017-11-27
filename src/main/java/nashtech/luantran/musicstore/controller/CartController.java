@@ -2,6 +2,8 @@ package nashtech.luantran.musicstore.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,10 @@ import nashtech.luantran.musicstore.repository.AlbumRepository;
 import nashtech.luantran.musicstore.repository.GenreRepository;
 
 @Controller
-public class CartController {
+public class CartController extends GeneralController{
 	
-	
+	public static final String PARAM_LATESTPHOTO = "LATEST_PHOTO_PARAM";
+	public static final String PARAM_BASE_URL = "baseURL";
 	@Autowired
 	private AlbumRepository albumRepository;
 	
@@ -25,7 +28,9 @@ public class CartController {
 	private GenreRepository genreRepository;
 
 	@GetMapping("/viewproduct/{id}")
-	public ModelAndView viewProduct(@PathVariable("id") Long id , Model model) {
+	public ModelAndView viewProduct(@PathVariable("id") Long id , Model model,HttpServletRequest request) {
+		model.addAttribute(PARAM_BASE_URL, getBaseURL(request));
+
 		Album album = albumRepository.findOne(id);
 		List<Genre> genres = genreRepository.findAll();
 		model.addAttribute("genres", genres);
@@ -34,6 +39,7 @@ public class CartController {
 		return new ModelAndView("viewproduct");
 		
 	}
+	
 	@GetMapping("/viewcart")
 	public ModelAndView viewCart() {
 		return new ModelAndView("viewcart");

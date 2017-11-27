@@ -36,7 +36,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public MultipartResolver getMultipartResolver() {
         CommonsMultipartResolver resover = new CommonsMultipartResolver();
         // 1MB
-        resover.setMaxUploadSize(1 * 1024 * 1024);
+        resover.setMaxUploadSize(1 * 1024 * 1024 );
  
         return resover;
     }

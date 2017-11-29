@@ -23,7 +23,7 @@
 	String latestPhotoUpload = (String) request.getAttribute(AdminController.PARAM_LATESTPHOTO);
 %>
 
-<form:form action="${pageContext.request.contextPath }/admin/add"
+<form:form action="${pageContext.request.contextPath }/admin/add?${_csrf.parameterName}=${_csrf.token}"
 	method="POST" commandName="albumVO" enctype="multipart/form-data"
 	class="" name="myForm" onsubmit="return validateForm()" >
 

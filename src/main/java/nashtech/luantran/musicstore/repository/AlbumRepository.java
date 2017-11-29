@@ -10,5 +10,6 @@ public interface AlbumRepository extends JpaRepository<Album, Long> {
 
 	List<Album> findByGenreName(String name);
 	
+	Long findByid(Long id);
 }
 

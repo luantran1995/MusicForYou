@@ -33,7 +33,7 @@ public class UserValidator implements Validator {
 		if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
 			errors.rejectValue("email", "Size.userForm.email");
 		}
-		System.out.println("custom validate email flow");
+		System.out.println("validate");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "Size.userForm.password");

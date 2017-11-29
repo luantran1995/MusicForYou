@@ -17,12 +17,12 @@ public class UserServiceImpl implements UserService {
 //        user.setRoles(new HashSet<>(roleRepository.findAll()));
 	
         userRepository.save(user);
-        System.out.println("đăng ký phân quyền thành công ");
+        System.out.println("save user ");
 	}
 
 	@Override
 	public Users findByUsername(String username) {
-		System.out.println("tim coi co trung thang nao khong");
+		System.out.println("find by username");
         return userRepository.findByEmail(username);
 
 	}

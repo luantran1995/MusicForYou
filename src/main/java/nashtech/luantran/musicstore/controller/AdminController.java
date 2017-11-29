@@ -86,16 +86,19 @@ public class AdminController extends GeneralController {
 	}
 
 	@PostMapping(value = "/admin/update")
-	public ModelAndView updateAlbum(@ModelAttribute(value = "albumVO") AlbumVO albumVO, Model model) {
+	public ModelAndView updateAlbum(@ModelAttribute(value = "albumVO") AlbumVO albumVO, Model model,HttpServletRequest request) {
+		System.out.println("update");
 		Album album = new Album();
 		album.setId(albumVO.getId());
 		album.setArtist(new Artist(albumVO.getIdArtist()));
 		album.setGenre(new Genre(albumVO.getIdGenre()));
 		album.setPrice(albumVO.getPrice());
 		album.setTitle(albumVO.getTitle());
+		model.addAttribute(PARAM_BASE_URL, getBaseURL(request));
 
-		albumRepository.save(album);
 		model.addAttribute("albums", albumRepository.findAll());
+		albumRepository.save(album);
+
 		return new ModelAndView("admin");
 
 	}
@@ -126,7 +129,7 @@ public class AdminController extends GeneralController {
 
 	@PostMapping(value = "/admin/add")
 	public String addAlbum(Model model, HttpServletRequest request,
-			@ModelAttribute(value = "albumVO") @Valid AlbumVO albumVO, BindingResult bindingResult,
+			@ModelAttribute(value = "albumVO")  AlbumVO albumVO, BindingResult bindingResult,
 			@RequestParam MultipartFile file) {
 		Album album = new Album();
 		album.setId(albumVO.getId());

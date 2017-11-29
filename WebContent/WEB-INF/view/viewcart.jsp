@@ -1,57 +1,44 @@
+<%@page import="java.util.List"%>
+<%@page import="nashtech.luantran.musicstore.model.CartItem"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ include file="/WEB-INF/view/template/header.jsp"%>
-
-<div class="container-wrapper">
-	<div class="container">
-		<section></section>
-
-		<section class="container">
-
-			<div>
-
-				<div>
-					<a class="btn btn-danger pull-left"><span
-						class="glyphicon glyphicon-remove-sign"></span> Clear Cart</a> <a
-						href="<spring:url value="" />" class="btn btn-success pull-right"><span
-						class="glyphicon glyphicon-shopping-cart"></span> Check out</a>
-				</div>
-
-				<br /> <br /> <br />
-
-				<table class="table table-hover">
+<html xmlns:th="http://www.thymeleaf.org">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+			<div class="body">
+			
+				<table class=" table">
 					<tr>
 						<th>Album name</th>
 						<th>Price</th>
 						<th>Quantity</th>
+						<th>Total Price</th>
 						<th></th>
 						<th></th>
-						<th></th>
-
-
 					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><a href="#" class="label label-danger" onclick=""><span
-								class="glyphicon glyphicon-remove"></span>remove</a></td>
+					<c:forEach var="item" items="${cartItem}">
+					<tr >
+						<td>${item.album.title}</td>
+						<td>${item.album.price}</td>
+						<td>${item.quantity}</td>
+						<td>${item.quantity * item.album.price}</td>
+						<td><a href="<c:url value = "/removeitem/${item.album.id}"/>"class="btn btn-default">Remove</a> </td>
 					</tr>
+					</c:forEach>
 					<tr>
 						<th></th>
 						<th></th>
-						<th>Grand Total</th>
-						<th></th>
+						<th>Grand Total:</th>
+						<th>${grandTotal}</th>
 						<th></th>
 						<th></th>
 					</tr>
 				</table>
-
-				<a href="<c:url value ="/genre?name=${album.genre.name}"/>"
-					class="btn btn-default">Continue shopping </a>
+				<a href="<c:url value = "/genre?name=${genre}"/>"class="btn btn-default">Back</a>
+				<a href="<c:url value = "/cart/checkout"/>" class="btn  btn-success">Check out</a>
+				<a href="<c:url value = "/removeall"/>" class="btn-default btn">Clear Cart</a>
+				
+					
 			</div>
-		</section>
-	</div>
-</div>
-<!-- My -->
-<script src="<c:url value="/resources/js/controller.js?v3" /> "></script>
+	
+
 

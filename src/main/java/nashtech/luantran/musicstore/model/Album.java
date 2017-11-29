@@ -1,11 +1,14 @@
 package nashtech.luantran.musicstore.model;
 
+import java.util.Map;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -23,8 +26,20 @@ public class Album {
 	
 	@Column(length = 1024)
 	private String albumArtUrl;
+	
+	@OneToMany
+	private Map<Integer, CartItem> cartItems;
 
 	
+
+
+	public Map<Integer, CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(Map<Integer, CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
 
 	public String getAlbumArtUrl() {
 		return albumArtUrl;
@@ -79,6 +94,13 @@ public class Album {
 
 	public void setArtist(Artist artist) {
 		this.artist = artist;
+	}
+
+	public Album(Long id) {
+		this.id = id;
+	}
+	
+	public Album() {
 	}
 
 }

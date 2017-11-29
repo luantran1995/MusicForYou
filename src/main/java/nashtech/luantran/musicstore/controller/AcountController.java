@@ -43,16 +43,6 @@ public class AcountController {
 	@Autowired
 	private RoleRepository roleRepository;
 
-	@GetMapping("/logout")
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		System.out.println("logout");
-		if (auth != null) {
-			new SecurityContextLogoutHandler().logout(request, response, auth);
-		}
-		return "login";
-	}
-
 
 	@GetMapping("/login")
 	public String getLogin(Model model, String error, String logout) {
@@ -73,8 +63,8 @@ public class AcountController {
 
 	@GetMapping("/registration")
 	public String registration(Model model) {
-		System.out.println("cai nay trang tra ve khi dang ky khong thanh cong");
 		model.addAttribute("userForm", new Users());
+		System.out.println("userForm");
 		List<Genre> genres = genreRepository.findAll();
 		model.addAttribute("genres", genres);
 		return "registration";
@@ -83,13 +73,13 @@ public class AcountController {
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registration(@ModelAttribute("userForm") Users userForm, BindingResult bindingResult, Model model) {
-		System.out.println("vao form dang ky ahihi");
+		System.out.println("registrationa");
 		List<Genre> genres = genreRepository.findAll();
 		model.addAttribute("genres", genres);
 		userValidator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
-			System.out.println("tra lai form dang ky khi dang ky khong thanh cong");
+			System.out.println("hasError");
 			return "registration";
 		}
 		 HashSet<Role> roles = new HashSet<>();

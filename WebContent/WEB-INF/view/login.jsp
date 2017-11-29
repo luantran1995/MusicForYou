@@ -29,5 +29,4 @@
 			</div>
 		</form>
 	</div>
-	<script src="${contextPath}/js/bootstrap.min.js"></script>
 	

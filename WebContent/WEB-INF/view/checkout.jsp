@@ -4,31 +4,37 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ include file="/WEB-INF/view/template/header.jsp"%>
-<h2>Address And Payment</h2>
-    <fieldset>
-        <h1>Shipping Information</h1>
+<!-- MaCarouselin CSS -->
+<link href="<c:url value="/css/carousel.css" />"rel="stylesheet">
+<!-- Bootstrap core CSS -->
+<link href="<c:url value="/css/bootstrap.min.css"/>" rel="stylesheet">
 
-    </fieldset>
-    <form:form method="POST" commandName="cart" action="${pageContext.request.contextPath}/cart/submit">
-    <fieldset>
+
+<div  class="container">
+<h2>Address And Payment</h2>
+  <fieldset>
+        <h1>Shipping Information</h1>
+      </fieldset>
+        
+ <form:form method="POST" commandName="cart" action="${pageContext.request.contextPath}/cart/checkout/submit">
       
         <div class="editor-field">
-            <input type="text" placeholder="GrandTotal" value="${cart.grandTotal}" disabled/>
+            <input  class="form-control"  type="text" placeholder="GrandTotal" value="${cart.grandTotal}" disabled />
         </div>
         <div class="editor-field">
-                    <form:input type="text"  path="name" placeholder="Name" />
+                    <form:input  class="form-control" type="text"  path="name" placeholder="Name" />
+        </div>
+         <div class="editor-field">
+                    <form:input  class="form-control" type="text"  path="phone" placeholder="Phone" />
         
         </div>
          <div class="editor-field">
-                    <form:input type="text"  path="phone" placeholder="Phone" />
-        
+                    <form:input   class="form-control" type="text"  path="address" placeholder="Address" />
         </div>
-         <div class="editor-field">
-                    <form:input type="text"  path="address" placeholder="Address" />
         
-        </div>
-    </fieldset>
-    
-    <input  type="submit" value="Submit Order" />
+    <input  class="form-control"  type="submit" value="Submit Order" />
     </form:form>
+    
+   
+</div>
+  

@@ -1,3 +1,5 @@
+<%@page import="nashtech.luantran.musicstore.model.CartItem"%>
+<%@page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
@@ -22,6 +24,15 @@
 <!-- NAVBAR
 ================================================== -->
 <body>
+	<%
+		int number = 0;
+		if(session.getAttribute("cart") == null){
+			number = 0;
+		}else{
+			List<CartItem> lstCartItem = (List<CartItem>)session.getAttribute("cart");
+			number = lstCartItem.size();
+		}
+		 %>
 	<div class="">
 		<div class="header">
 
@@ -35,7 +46,7 @@
 								<li><a href="${pageContext.request.contextPath}/">Home</a></li>
 								<c:if
 									test="${pageContext.request.userPrincipal.name != 'admin'}">
-									<li><a href="<c:url value="/viewcart" />">Cart</a></li>
+									<li><a href="<c:url value="/viewcart" />">Cart(<%=number%>)</a></li>
 								</c:if>
 								<c:if
 									test="${pageContext.request.userPrincipal.name != 'admin'}">
@@ -45,7 +56,7 @@
 							</c:if>
 							<c:if test="${pageContext.request.userPrincipal.name == null}">
 								<li><a href="${pageContext.request.contextPath}/">Home</a></li>
-								<li><a href="<c:url value="/viewcart" />">Cart</a></li>
+								<li><a href="<c:url value="/viewcart" />">Cart(<%=number%>)</a></li>
 								<li><a href="<c:url value="/registration" />">Register</a></li>
 								<li><a href="<c:url value="/login" />">Login</a></li>
 							</c:if>

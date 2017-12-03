@@ -28,7 +28,7 @@
 					<br />
 					<p>
 						<a href="<c:url value = "/genre?name=${album.genre.name}"/>"class="btn btn-default">Back</a> 
-						<a href="<c:url value = "/cart/buy/${album.id}"/>"class="btn btn-default">Add Cart</a> 
+						<a href="<c:url value = "/viewcart/buy/${album.id}"/>"class="btn btn-default">Add Cart</a> 
 						<a href="<spring:url value="/viewcart" />" class="btn btn-default"> View Cart</a>
 					</p>
 				</div>

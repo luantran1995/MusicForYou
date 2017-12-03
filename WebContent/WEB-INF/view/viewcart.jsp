@@ -21,7 +21,7 @@
 						<td>${item.album.price}</td>
 						<td>${item.quantity}</td>
 						<td>${item.quantity * item.album.price}</td>
-						<td><a href="<c:url value = "/removeitem/${item.album.id}"/>"class="btn btn-default">Remove</a> </td>
+						<td><a href="<c:url value = "/viewcart/removeitem/${item.album.id}"/>"class="btn btn-default">Remove</a> </td>
 					</tr>
 					</c:forEach>
 					<tr>
@@ -34,8 +34,8 @@
 					</tr>
 				</table>
 				<a href="<c:url value = "/genre?name=${genre}"/>"class="btn btn-default">Back</a>
-				<a href="<c:url value = "/cart/checkout"/>" class="btn  btn-success">Check out</a>
-				<a href="<c:url value = "/removeall"/>" class="btn-default btn">Clear Cart</a>
+				<a href="<c:url value = "/viewcart/checkout"/>" class="btn  btn-success">Check out</a>
+				<a href="<c:url value = "/viewcart/removeall"/>" class="btn-default btn">Clear Cart</a>
 				
 					
 			</div>
